@@ -1,0 +1,45 @@
+:root {
+    --color-background:#D8D2CB;
+    --color-background-nav:#1C658C;
+    --color-background-home:#398AB9;
+    --color-text-light:#EEEEEE;
+    --color-text-title:#F66B0E;
+    --color-text-dark:#3D3D3D;
+  }
+
+  *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box ;
+    font-family: sans-serif;
+  }
+
+  html,
+  body{
+    background-color: var(--color-background);
+  }
+
+  a{
+    text-decoration: none;
+  }
+
+  a:hover{
+    opacity: 0.8;
+  }
+
+  .container{
+    width: 90%;
+  }
+
+  main{
+    width: 100%;
+    min-height: calc(100vh - 120px);
+    display: flex;
+    flex-direction: column;
+  }
+
+  h1{
+    color: var(--color-text-title);
+    margin:40px 0;
+    font-size: 30px;
+  }
