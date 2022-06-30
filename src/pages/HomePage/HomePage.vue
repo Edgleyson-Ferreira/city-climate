@@ -8,15 +8,17 @@
         <div>
             <WeatherCardComponent :cityName="cityName" :data="data" @handleEnter="getWeather($event)" />
         </div>
+        <cityModal />
     </main>
 </template>
 
 <script>
 import WeatherCardComponent from "@/components/WeatherCardComponent/WeatherCardComponent.vue";
+import CityModal from '@/components/CityModal/CityModal.vue';
 
 export default {
     name: "HomePage",
-    components: { WeatherCardComponent },
+    components: { WeatherCardComponent, CityModal },
 }
 </script>
 
