@@ -1,7 +1,8 @@
 <template>  
   <v-card class="mx-auto" max-width="400">
     <div class="search">
-    <v-form v-on:submit.prevent="getWeather">
+      <p>{{cityName}} - {{weather.cityName}}</p>
+    <v-form v-on:submit.prevent="handleEnter">
       <v-text-field v-model="citySearch" hide-no-data hide-details label="Nome da cidades" solo></v-text-field>
     </v-form>    
   </div>
@@ -52,11 +53,22 @@
 <script>
   export default {
     name: 'WeatherCardComponent',
+    props:{
+      cityName: {
+        type: String,
+        default: '',
+      },
+      data: {
+        type: Object,
+        default: () => ({
+
+        }),
+      }
+    },
     data(){
       return {
-        citySearch: "",
+        localCityName: this.cityName,
         weather: {
-          cityName: 'Garanhuns',
           estate: 'PE',
           description: 'Ensolarado',
           temperature: '23',
@@ -66,18 +78,15 @@
           { day: 'Wednesday', icon: 'mdi-white-balance-sunny', temp: '22\xB0/14\xB0' },
           { day: 'Thursday', icon: 'mdi-cloud', temp: '25\xB0/15\xB0' },
         ],
+      };
+    },
+    methods:{
+      handleEnter: function(){
+        this.$emit('handleEnter', this.localCityName);
       }
     },
-    methods: {
-      getWeather: async function(){
-        console.log(this.citySearch);
-        const key = "cdfbf52ea66b119d020e98bf63f1fa40"
-        const baseURL = `https://api.openweathermap.org/data/2.5/weather?q=${this.citySearch}&appid=${key}`;
-        const response = await fetch(baseURL);
-        const data = await response.json();
-        console.log(data);
-        this.weather.cityName = data.name;
-      }
+    created(){
+      console.log(this.cityName);
     },
   }
 </script>
