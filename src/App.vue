@@ -1,9 +1,11 @@
 <template>
-  <div id="app">
-    <HeaderComponent />
-    <router-view path="$router.key" />
-    <FooterComponent />
-  </div>
+  <v-app id="app">
+    <div>
+      <HeaderComponent />
+      <router-view path="$router.key" />
+      <FooterComponent />
+    </div>
+  </v-app>
 </template>
 
 <script lang="ts">
