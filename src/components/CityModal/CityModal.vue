@@ -14,7 +14,7 @@
                     </v-container>
                 </v-card-text>
                 <v-card-actions>
-                        <v-btn  color="#297ac7" class="btn-card" align="center" elevation="2" @click="dialog = false">
+                        <v-btn  color="#297ac7" class="white--text"  align="center" elevation="2" @click="dialog = false">
                             <p class="bnt-text">Ver previsão do tempo</p>
                         </v-btn>
                 </v-card-actions>
