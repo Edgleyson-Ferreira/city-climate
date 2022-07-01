@@ -12,6 +12,7 @@
       <v-row class="temperature">      
         <v-col class="text-h2" cols="8">
           {{ weather.temperature }}&deg;C
+          {{ JSON.stringify(data) }}
         </v-col>
         <v-col cols="4">
           <v-img src="https://cdn.vuetifyjs.com/images/cards/sun.png" alt="Sunny image" width="92"></v-img>
