@@ -11,26 +11,39 @@ main {
     margin-bottom: 20px;
 }
 
-.container{
-    width: 100%;
-    height: 100%;
+.cities{
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 }
 
-.card-component{
-    width: 100%;
-    height: 100vh;
-
+.city {
+    margin-bottom: 30px;
+    width: 300px;
 }
 
 .search{
     width: 250px;
+    margin: auto;
 }
 
 .space{
     width: 100%;
     height: 30px;
+}
+
+@media (min-width: 700px){
+    .cities{
+        flex-direction: row;
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .city{
+        margin-right: 30px;
+    }
+
+    .search{
+        margin: 0px;
+    }
 }

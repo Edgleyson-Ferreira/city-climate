@@ -1,6 +1,6 @@
 <template>
     <header>
-        <nav class="container">
+        <nav>
             <img alt="city_climate" id="logo" src="@/assets/city_climate_logo.png">
             <div id="menu-items">                
                 <ul>
