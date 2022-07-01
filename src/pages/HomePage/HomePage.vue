@@ -2,6 +2,9 @@
     <main>
         <div class="search">
             <v-text-field hide-no-data hide-details label="Nome da cidade" solo>
+                <v-icon slot="append" color="gray">
+                    mdi-magnify
+                </v-icon>
             </v-text-field>
         </div>
         <div class="space"></div>
@@ -17,7 +20,6 @@
 <script>
 import WeatherCardComponent from "@/components/WeatherCardComponent/WeatherCardComponent.vue";
 
-
 export default {
     name: "HomePage",
     components: { WeatherCardComponent },
@@ -27,9 +29,8 @@ export default {
                 {name: 'Garanhuns'},
                 {name: 'Caruaru'},
                 {name: 'Recife'},
-                {name: 'Recife'},
-                {name: 'Recife'},
-                {name: 'Recife'},
+                {name: 'Palmerina'},
+                {name: 'Lagedo'},
             ]
         };
     },

@@ -1,9 +1,9 @@
 <template>
-  <v-card>
+  <v-card color="#cbe6fd" elevation="5">
     <v-list-item two-line>
       <v-list-item-content>
         <v-list-item-title class="text-h5">
-          {{ weather.cityName }} - {{ weather.estate }}
+          {{ cityName }} - {{ weather.estate }}
         </v-list-item-title>
         <v-list-item-subtitle>Mon, 12:30 PM, {{ weather.description }}</v-list-item-subtitle>
       </v-list-item-content>
