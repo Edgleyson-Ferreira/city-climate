@@ -27,6 +27,9 @@ export default {
                 {name: 'Garanhuns'},
                 {name: 'Caruaru'},
                 {name: 'Recife'},
+                {name: 'Recife'},
+                {name: 'Recife'},
+                {name: 'Recife'},
             ]
         };
     },
