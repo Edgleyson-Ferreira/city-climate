@@ -5,18 +5,31 @@
             </v-text-field>
         </div>
         <div class="space"></div>
-        <div>
-            <WeatherCardComponent :cityName="cityName" :data="data" @handleEnter="getWeather($event)" />
-        </div>
+        <section class="cities">
+            <div class="city" v-for="(city, index) in cities" :key="index">
+                <WeatherCardComponent :cityName="city.name" />
+            </div>
+            <!--<WeatherCardComponent :cityName="cityName" :data="data" @handleEnter="getWeather($event)" />-->
+        </section>
     </main>
 </template>
 
 <script>
 import WeatherCardComponent from "@/components/WeatherCardComponent/WeatherCardComponent.vue";
 
+
 export default {
     name: "HomePage",
     components: { WeatherCardComponent },
+    data() {
+        return {
+            cities: [
+                {name: 'Garanhuns'},
+                {name: 'Caruaru'},
+                {name: 'Recife'},
+            ]
+        };
+    },
 }
 </script>
 
