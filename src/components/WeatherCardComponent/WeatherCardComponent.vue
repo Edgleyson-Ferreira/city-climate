@@ -1,5 +1,8 @@
 <template>
   <v-card color="#cbe6fd" elevation="5">
+    <ChartModal :show="showChart" @close="closeChart" />
+    <v-btn @click="handleDelete">Deletar</v-btn>
+    <v-btn @click="openChart">Ver gráfico</v-btn>
     <v-list-item two-line>
       <v-list-item-content>
         <v-list-item-title class="text-h5">
@@ -23,8 +26,11 @@
 </template>
 
 <script>
+import ChartModal from '@/components/ChartModal/ChartModal.vue';
+
   export default {
     name: 'WeatherCardComponent',
+    components: {ChartModal},
     props:{
         cityName: String,
         data: Object,
@@ -37,12 +43,22 @@
           description: 'Ensolarado',
           temperature: '23',
         },
+        showChart: false,
       };
     },
     methods:{
       handleEnter: function(){
         this.$emit('handleEnter', this.localCityName);
-      }
+      },
+      handleDelete: function(){
+        this.$emit('handleDelete', this.cityName);
+      },
+      openChart: function(){
+       this.showChart = true;
+      },
+      closeChart: function(){
+        this.showChart = false;
+      },
     },
     created(){
       console.log(this.cityName);
