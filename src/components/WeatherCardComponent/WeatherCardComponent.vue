@@ -1,11 +1,11 @@
 <template>
   <v-card color="#cbe6fd" max-width="500" elevation="5" class="card">
     <ChartModal :show="showChart" @close="closeChart" />
-    <div class="text-h4">
+    <div class="text-h4" align="center">
       <span>{{ cityName }} - PE</span>
     </div>
-    <div align="start">
-      <div>Mon, 12:30 PM, {{data.weather[0].description}}</div>
+    <div align="center">
+      <div>{{ date }}, <b>{{data.weather[0].description}}</b></div>
     </div>
     <v-card-text>
       <v-row class="temperature">
@@ -13,7 +13,7 @@
           {{data.main.temp | round}} &deg;C
         </v-col>
         <v-col cols="4">
-          <v-img :src="getWeatherIcon(data.weather[0].icon)"></v-img>
+          <v-img :src='getWeatherIcon(data.weather[0].icon)'></v-img>
         </v-col>
       </v-row>
     </v-card-text>
@@ -52,6 +52,7 @@ export default {
   data() {
     return {
       showChart: false,
+      date: '',
     };
   },
   methods: {
@@ -64,7 +65,11 @@ export default {
     closeChart: function () {
       this.showChart = false;
     },
-    getWeatherIcon
+    showDate(dt){
+      const test = new Date(dt*1000);
+      this.date = test.toLocaleDateString("pt-BR")
+    },
+    getWeatherIcon,
   },
   filters:{
     round(value){
@@ -74,6 +79,9 @@ export default {
       return Math.round(value)
     }
   },
+  mounted(){
+    this.showDate(this.data.dt);
+  }
 }
 </script>
 

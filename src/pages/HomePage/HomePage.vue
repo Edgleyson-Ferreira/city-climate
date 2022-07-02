@@ -2,7 +2,7 @@
     <main>
         <div class="options">            
             <div class="search mr-10">
-                <v-text-field hide-no-data hide-details label="Nome da cidade" solo>
+                <v-text-field v-model="search" hide-no-data hide-details label="Nome da cidade" solo>
                     <v-icon slot="append" color="gray">
                         mdi-magnify
                     </v-icon>
@@ -20,10 +20,9 @@
         <CityModal :show="showModal" @close="closeModal" @confirm="addCity" />
         <div class="space"></div>
         <div class="cities">
-            <div class="mb-8 city" v-for="(city, index) in cities" :key="index">
+            <div class="mb-8 city" v-for="(city, index) in filteredCities" :key="index">
                 <WeatherCardComponent :cityName="city.name" :data="city.data" @handleDelete="deleteCity" />
             </div>
-            <!--<WeatherCardComponent :cityName="cityName"  @handleEnter="getWeather($event)" />-->
         </div>
     </main>
 </template>
@@ -31,7 +30,6 @@
 <script>
 import WeatherCardComponent from "@/components/WeatherCardComponent/WeatherCardComponent.vue";
 import { getCityWeather } from "@/services"
-import { getWeatherIcon } from "@/services"
 import CityModal from '@/components/CityModal/CityModal.vue';
 
 export default {
@@ -39,12 +37,13 @@ export default {
     components: { WeatherCardComponent, CityModal },
     data() {
         return {
+            search: '',
             cities: [
-                { data: {main: {temp: "--"}, weather: [{description: "--", icon: '01d'}]}, name: 'Garanhuns' },
-                { data: {main: {temp: "--"}, weather: [{description: "--", icon: '01d'}]}, name: 'Caruaru' },
-                { data: {main: {temp: "--"}, weather: [{description: "--", icon: '01d'}]}, name: 'Recife' },
-                { data: {main: {temp: "--"}, weather: [{description: "--", icon: '01d'}]}, name: 'Palmeirina' },
-                { data: {main: {temp: "--"}, weather: [{description: "--", icon: '01d'}]}, name: 'Lajedo' },
+                { data: {main: {temp: "--"}, weather: [{description: "--", icon: '--'}]}, name: 'Garanhuns' },
+                { data: {main: {temp: "--"}, weather: [{description: "--", icon: '--'}]}, name: 'Caruaru' },
+                { data: {main: {temp: "--"}, weather: [{description: "--", icon: '--'}]}, name: 'Recife' },
+                { data: {main: {temp: "--"}, weather: [{description: "--", icon: '--'}]}, name: 'Palmeirina' },
+                { data: {main: {temp: "--"}, weather: [{description: "--", icon: '--'}]}, name: 'Lajedo' },
             ],
             showModal: false,
             showChart: false,
@@ -55,12 +54,6 @@ export default {
             for (const i in this.cities) {
                 const res = await getCityWeather(this.cities[i].name);
                 this.cities[i].data = res.data;
-            }
-        },
-        async fetchWeatherIcons() {
-            for (const i in this.cities) {
-                const res = await getWeatherIcon(this.cities[i].icon);
-                this.cities[i].icon = res.data;
             }
         },
 
@@ -83,6 +76,13 @@ export default {
     mounted() {
         this.fetchCityWeathers();
     },
+    computed: {
+    filteredCities() {
+      return this.cities.filter(city => {
+         return city.name.toLowerCase().indexOf(this.search.toLowerCase()) > -1
+      })
+    }
+  }
 }
 </script>
 
