@@ -21,7 +21,7 @@
         <div class="space"></div>
         <div class="cities">
             <div class="mb-8 city" v-for="(city, index) in cities" :key="index">
-                <WeatherCardComponent :cityName="city.name" :weather="city.weather" @handleDelete="deleteCity" />
+                <WeatherCardComponent :cityName="city.name" :data="city.data" @handleDelete="deleteCity" />
             </div>
             <!--<WeatherCardComponent :cityName="cityName"  @handleEnter="getWeather($event)" />-->
         </div>
@@ -40,11 +40,11 @@ export default {
     data() {
         return {
             cities: [
-                { weather: {}, name: 'Garanhuns', icon: '' },
-                { weather: {}, name: 'Caruaru', icon: '' },
-                { weather: {}, name: 'Recife', icon: '' },
-                { weather: {}, name: 'Palmeirina', icon: '' },
-                { weather: {}, name: 'Lajedo', icon: '' },
+                { data: {main: {temp: "--"}, weather: [{description: "--", icon: '01d'}]}, name: 'Garanhuns' },
+                { data: {main: {temp: "--"}, weather: [{description: "--", icon: '01d'}]}, name: 'Caruaru' },
+                { data: {main: {temp: "--"}, weather: [{description: "--", icon: '01d'}]}, name: 'Recife' },
+                { data: {main: {temp: "--"}, weather: [{description: "--", icon: '01d'}]}, name: 'Palmeirina' },
+                { data: {main: {temp: "--"}, weather: [{description: "--", icon: '01d'}]}, name: 'Lajedo' },
             ],
             showModal: false,
             showChart: false,
@@ -54,7 +54,7 @@ export default {
         async fetchCityWeathers() {
             for (const i in this.cities) {
                 const res = await getCityWeather(this.cities[i].name);
-                this.cities[i].weather = res.data;
+                this.cities[i].data = res.data;
             }
         },
         async fetchWeatherIcons() {
@@ -74,7 +74,7 @@ export default {
         async addCity(name) {
             this.closeModal();
             const res = await getCityWeather(name);
-            this.cities.push({ weather: res.data, name });
+            this.cities.push({ data: res.data, name });
         },
         deleteCity(name) {
             this.cities = this.cities.filter(city => city.name !== name);
@@ -84,9 +84,6 @@ export default {
         this.fetchCityWeathers();
     },
 }
-
 </script>
-
-
 
 <style scoped src="./style.css" />

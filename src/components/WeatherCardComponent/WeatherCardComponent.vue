@@ -1,20 +1,19 @@
 <template>
   <v-card color="#cbe6fd" max-width="500" elevation="5" class="card">
     <ChartModal :show="showChart" @close="closeChart" />
-
     <div class="text-h4">
-      <span>{{ cityName }} - estado</span>
+      <span>{{ cityName }} - PE</span>
     </div>
     <div align="start">
-      <div>Mon, 12:30 PM, descrição </div>
+      <div>Mon, 12:30 PM, {{data.weather[0].description}}</div>
     </div>
     <v-card-text>
       <v-row class="temperature">
         <v-col class="text-h2" cols="8">
-          23 &deg;C
+          {{data.main.temp | round}} &deg;C
         </v-col>
         <v-col cols="4">
-          icone
+          <v-img :src="getWeatherIcon(data.weather[0].icon)"></v-img>
         </v-col>
       </v-row>
     </v-card-text>
@@ -37,13 +36,14 @@
 
 <script>
 import ChartModal from '@/components/ChartModal/ChartModal.vue';
+import { getWeatherIcon } from '@/services'
 
 export default {
   name: 'WeatherCardComponent',
   components: { ChartModal },
   props: {
     cityName: String,
-    weather: {
+    data: {
       type: Object,
       require: true,
     },
@@ -52,7 +52,6 @@ export default {
   data() {
     return {
       showChart: false,
-
     };
   },
   methods: {
@@ -65,6 +64,15 @@ export default {
     closeChart: function () {
       this.showChart = false;
     },
+    getWeatherIcon
+  },
+  filters:{
+    round(value){
+      if(value === "--"){
+        return value
+      }
+      return Math.round(value)
+    }
   },
 }
 </script>
