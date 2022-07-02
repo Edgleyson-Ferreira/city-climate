@@ -3,6 +3,13 @@
     align-items: center;
 }
 
-.cor{
-    color: #cbe6fd;
+.card{
+    display: flex;
+    flex-direction: column;
+    padding: 50px 20px 20px 20px;
+}
+
+.card-btn{
+    display: flex;
+    justify-content: space-between
 }

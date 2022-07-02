@@ -8,12 +8,12 @@
             </v-text-field>
         </div>
         <div class="space"></div>
-        <section class="cities">
-            <div class="city" v-for="(city, index) in cities" :key="index">
-                <WeatherCardComponent :cityName="city.name" :data="city.weather" @handleDelete="deleteCity"/>
+        <div class="cities">
+            <div class="mb-8 city" v-for="(city, index) in cities" :key="index">
+                <WeatherCardComponent :cityName="city.name" :weather="city.weather" @handleDelete="deleteCity"/>
             </div>
             <!--<WeatherCardComponent :cityName="cityName"  @handleEnter="getWeather($event)" />-->
-        </section>
+        </div>
         <CityModal :show="showModal" @close="closeModal" @confirm="addCity"/>
         <v-btn @click="openModal">clickmodal</v-btn>
     </main>
@@ -22,6 +22,7 @@
 <script>
 import WeatherCardComponent from "@/components/WeatherCardComponent/WeatherCardComponent.vue";
 import { getCityWeather } from "@/services"
+import { getWeatherIcon } from "@/services"
 import CityModal from '@/components/CityModal/CityModal.vue';
 
 export default {
@@ -29,13 +30,12 @@ export default {
     components: { WeatherCardComponent, CityModal },
     data() {
         return {
-            cities:[
-            
-                {weather: {}, name: 'Garanhuns'},
-                {weather: {}, name: 'Caruaru'},
-                {weather: {}, name: 'Recife'},
-                {weather: {}, name: 'Palmeirina'},
-                {weather: {}, name: 'Lajedo'},
+            cities:[            
+                {weather: {}, name: 'Garanhuns', icon: ''},
+                {weather: {}, name: 'Caruaru', icon: ''},
+                {weather: {}, name: 'Recife', icon: ''},
+                {weather: {}, name: 'Palmeirina', icon: ''},
+                {weather: {}, name: 'Lajedo', icon: ''},
             ],
             showModal: false,
             showChart: false,
@@ -46,6 +46,12 @@ export default {
             for (const i in this.cities) {
                 const res = await getCityWeather(this.cities[i].name);
                 this.cities[i].weather = res.data;
+            }
+        },
+        async fetchWeatherIcons(){
+            for (const i in this.cities) {
+                const res = await getWeatherIcon(this.cities[i].icon);
+                this.cities[i].icon = res.data;
             }
         },
 
