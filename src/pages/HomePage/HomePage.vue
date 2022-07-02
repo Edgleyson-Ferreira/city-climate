@@ -1,21 +1,30 @@
 <template>
     <main>
-        <div class="search">
-            <v-text-field hide-no-data hide-details label="Nome da cidade" solo>
-                <v-icon slot="append" color="gray">
-                    mdi-magnify
-                </v-icon>
-            </v-text-field>
+        <div class="options">            
+            <div class="search mr-10">
+                <v-text-field hide-no-data hide-details label="Nome da cidade" solo>
+                    <v-icon slot="append" color="gray">
+                        mdi-magnify
+                    </v-icon>
+                </v-text-field>
+            </div>
+            <div>
+                <v-btn shaped large color="success white--text" width="auto" elevation="1" @click="openModal">
+                    <v-icon left>
+                        mdi-plus
+                    </v-icon>
+                    Adicionar cidade
+                </v-btn>
+            </div>
         </div>
+        <CityModal :show="showModal" @close="closeModal" @confirm="addCity" />
         <div class="space"></div>
         <div class="cities">
             <div class="mb-8 city" v-for="(city, index) in cities" :key="index">
-                <WeatherCardComponent :cityName="city.name" :weather="city.weather" @handleDelete="deleteCity"/>
+                <WeatherCardComponent :cityName="city.name" :weather="city.weather" @handleDelete="deleteCity" />
             </div>
             <!--<WeatherCardComponent :cityName="cityName"  @handleEnter="getWeather($event)" />-->
         </div>
-        <CityModal :show="showModal" @close="closeModal" @confirm="addCity"/>
-        <v-btn @click="openModal">clickmodal</v-btn>
     </main>
 </template>
 
@@ -30,12 +39,12 @@ export default {
     components: { WeatherCardComponent, CityModal },
     data() {
         return {
-            cities:[            
-                {weather: {}, name: 'Garanhuns', icon: ''},
-                {weather: {}, name: 'Caruaru', icon: ''},
-                {weather: {}, name: 'Recife', icon: ''},
-                {weather: {}, name: 'Palmeirina', icon: ''},
-                {weather: {}, name: 'Lajedo', icon: ''},
+            cities: [
+                { weather: {}, name: 'Garanhuns', icon: '' },
+                { weather: {}, name: 'Caruaru', icon: '' },
+                { weather: {}, name: 'Recife', icon: '' },
+                { weather: {}, name: 'Palmeirina', icon: '' },
+                { weather: {}, name: 'Lajedo', icon: '' },
             ],
             showModal: false,
             showChart: false,
@@ -48,7 +57,7 @@ export default {
                 this.cities[i].weather = res.data;
             }
         },
-        async fetchWeatherIcons(){
+        async fetchWeatherIcons() {
             for (const i in this.cities) {
                 const res = await getWeatherIcon(this.cities[i].icon);
                 this.cities[i].icon = res.data;
@@ -59,15 +68,15 @@ export default {
             this.showModal = true;
         },
 
-        closeModal(){
+        closeModal() {
             this.showModal = false;
         },
-        async addCity(name){
+        async addCity(name) {
             this.closeModal();
             const res = await getCityWeather(name);
-            this.cities.push({weather: res.data, name});
+            this.cities.push({ weather: res.data, name });
         },
-        deleteCity(name){
+        deleteCity(name) {
             this.cities = this.cities.filter(city => city.name !== name);
         }
     },
@@ -77,5 +86,7 @@ export default {
 }
 
 </script>
+
+
 
 <style scoped src="./style.css" />

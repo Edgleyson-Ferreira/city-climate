@@ -1,14 +1,6 @@
 main {
     background-color: var(--color-background-home);
-    justify-content: center;
-    align-items: center;
     padding: 50px 20px 50px 20px;
-}
-
-.text-top {
-    color: var(--color-text-light);
-    font-size: 22px;
-    margin-bottom: 20px;
 }
 
 .cities{
@@ -21,10 +13,14 @@ main {
     margin-bottom: 30px;
     width: 400px;
 }
+.options{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
 
 .search{
     width: 300px;
-    margin: auto;
 }
 
 .space{
@@ -41,9 +37,5 @@ main {
 
     .city{
         margin-right: 30px;
-    }
-
-    .search{
-        margin: 0px;
     }
 }

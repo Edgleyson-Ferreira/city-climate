@@ -6,7 +6,7 @@
       <span>{{ cityName }} - estado</span>
     </div>
     <div align="start">
-      <v-div>Mon, 12:30 PM, descrição </v-div>
+      <div>Mon, 12:30 PM, descrição </div>
     </div>
     <v-card-text>
       <v-row class="temperature">

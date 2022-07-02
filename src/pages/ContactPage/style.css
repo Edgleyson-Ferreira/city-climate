@@ -1,0 +1,21 @@
+main{
+    align-items: center;
+}
+
+.contacts{
+    margin-bottom: 40px;
+    color: var(--color-text-dark);
+}
+
+.contact-title{
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.contact a{
+    color: var(--color-text-dark);
+}
+
+.contact{
+    margin-bottom: 20px;
+}

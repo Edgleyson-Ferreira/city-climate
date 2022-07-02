@@ -5,8 +5,8 @@
             <div id="menu-items">                
                 <ul>
                     <li><router-link to="/">Home</router-link></li>
-                    <li><router-link to="/sobre">Sobre</router-link></li>
-                    <li>Contato</li>
+                    <li><router-link to="/about">Sobre</router-link></li>
+                    <li><router-link to="/contact">Contato</router-link></li>
                 </ul>
             </div>
         </nav>

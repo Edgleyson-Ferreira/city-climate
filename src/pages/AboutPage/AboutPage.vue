@@ -2,18 +2,18 @@
     <main>
         <section class="container">
             <h1>Sobre</h1>
-            <div class="about" v-html="about">
-                
+            <div class="about">
+                TESTE
             </div>
         </section>
     </main>
 </template>
 
-<script lang="ts">
+<script>
 
 
 export default{
-    name:'SobrePage',
+    name:'AboutPage',
 }
 </script>
 
