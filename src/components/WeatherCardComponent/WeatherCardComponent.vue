@@ -1,6 +1,6 @@
 <template>
   <v-card color="#cbe6fd" max-width="500" elevation="5" class="card">
-    <ChartModal :show="showChart" @close="closeChart" />
+    <ChartModal :show="showChart" @close="closeChart" :cityName="cityName" :data="data"/>
     <div class="text-h4" align="center">
       <span>{{ cityName }} - PE</span>
     </div>

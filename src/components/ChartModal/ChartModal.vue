@@ -4,7 +4,7 @@
       <v-card class="card pb-5">
         <v-card-title>
           <v-container>
-            <span class="card-title text-h5">Gráfico da cidade</span>
+            <span class="card-title text-h5">Gráfico de {{ cityName }}</span>
           </v-container>
         </v-card-title>
         <v-card-text>
@@ -23,12 +23,17 @@ export default {
       type: Boolean,
       default: false
     },
+    data: {
+      type: Object,
+      require: true,
+    },
+    cityName: String
   },
   data: () => ({
     dialog: false,
     series: [{
-      name: "Desktops",
-      data: [10, 41, 35, 51]
+      name: "Temperatura (°C)",
+      data: [18, 20, 19, 22]
     }],
     chartOptions: {
       chart: {
