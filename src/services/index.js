@@ -15,7 +15,3 @@ export async function getCityForecast(lat, lon){
 export function getWeatherIcon(iconId){
     return `${iconURL}${iconId}@2x.png`
 }
-
-export async function getPECities(){
-    return await axios.get(`${ibgeURL}localidades/estados/26/municipios`)
-}
