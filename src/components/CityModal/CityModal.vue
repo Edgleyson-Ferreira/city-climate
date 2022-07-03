@@ -3,9 +3,7 @@
         <v-dialog class="dialog" width="70vh" v-model="dialog" persistent @click:outside="handleClose">
             <v-card class="card pb-5" >
                 <v-card-title>
-                    <v-container>
-                    <span class="card-title text-h5">Adicione outra cidade</span>
-                    </v-container>
+                    <p class="card-title text-h5">Adicione outra cidade</p>
                 </v-card-title>
                 <v-card-text>
                     <v-container>
