@@ -39,11 +39,11 @@ export default {
         return {
             search: '',
             cities: [
-                { data: {main: {temp: "--"}, weather: [{description: "--", icon: '--'}]}, name: 'Garanhuns' },
-                { data: {main: {temp: "--"}, weather: [{description: "--", icon: '--'}]}, name: 'Caruaru' },
-                { data: {main: {temp: "--"}, weather: [{description: "--", icon: '--'}]}, name: 'Recife' },
-                { data: {main: {temp: "--"}, weather: [{description: "--", icon: '--'}]}, name: 'Palmeirina' },
-                { data: {main: {temp: "--"}, weather: [{description: "--", icon: '--'}]}, name: 'Lajedo' },
+                { data: {main: {temp: "--"}, weather: [{description: "--", icon: '04d'}]}, name: 'Garanhuns' },
+                { data: {main: {temp: "--"}, weather: [{description: "--", icon: '04d'}]}, name: 'Caruaru' },
+                { data: {main: {temp: "--"}, weather: [{description: "--", icon: '04d'}]}, name: 'Recife' },
+                { data: {main: {temp: "--"}, weather: [{description: "--", icon: '04d'}]}, name: 'Palmeirina' },
+                { data: {main: {temp: "--"}, weather: [{description: "--", icon: '04d'}]}, name: 'Lajedo' },
             ],
             showModal: false,
             showChart: false,
@@ -56,7 +56,6 @@ export default {
                 this.cities[i].data = res.data;
             }
         },
-
         openModal() {
             this.showModal = true;
         },

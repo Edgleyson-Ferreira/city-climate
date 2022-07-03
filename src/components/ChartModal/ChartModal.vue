@@ -31,43 +31,12 @@ export default {
   },
   data: () => ({
     dialog: false,
-    series: [{
-      name: "Temperatura (°C)",
-      data: [18, 20, 19, 22]
-    }],
-    chartOptions: {
-      chart: {
-        height: 350,
-        type: 'line',
-        zoom: {
-          enabled: false
-        }
-      },
-      dataLabels: {
-        enabled: false
-      },
-      stroke: {
-        curve: 'straight'
-      },
-      title: {
-        text: 'Previsão do tempo por dia',
-        align: 'left'
-      },
-      grid: {
-        row: {
-          colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
-          opacity: 0.5
-        },
-      },
-      xaxis: {
-        categories: ['Seg', 'Ter', 'Qua', 'Qui'],
-      }
-    },
+
   }),
   watch: {
     show(newValue) {
       this.dialog = newValue;
-    }
+    },
   },
   methods: {
     handleClose() {
@@ -77,6 +46,60 @@ export default {
   mounted() {
     this.dialog = this.show;
   },
+  computed: {
+    series() {
+      if (this.data.temps.length == 0) {
+        return [{
+          name: "Temperatura (°C)",
+          data: []
+        }];
+      }
+      else {
+        return [{
+          name: "Temperatura (°C)",
+          data: this.data.temps
+        }];
+      }
+    },
+    chartOptions() {
+      const categories = this.data.dates
+      return {
+        chart: {
+          height: 350,
+          type: 'line',
+          zoom: {
+            enabled: false
+          }
+        },
+        dataLabels: {
+          enabled: false
+        },
+        stroke: {
+          curve: 'straight'
+        },
+        title: {
+          text: 'Previsão do tempo por dia',
+          align: 'left'
+        },
+        grid: {
+          row: {
+            colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+            opacity: 0.5
+          },
+        },
+        xaxis: {
+          categories: categories,
+        },
+        yaxis:{
+          labels:{
+            formatter(value){
+              return value.toFixed(0) + " °C";
+            }
+          }
+        }
+      }
+    },
+  }
 }
 
 </script>
