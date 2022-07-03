@@ -1,6 +1,6 @@
 <template>
     <v-row justify="center">
-        <v-dialog class="dialog" width="50vh" v-model="dialog" persistent max-width="600px" @click:outside="handleClose">
+        <v-dialog class="dialog" width="70vh" v-model="dialog" persistent @click:outside="handleClose">
             <v-card class="card pb-5" >
                 <v-card-title>
                     <v-container>
@@ -9,7 +9,7 @@
                 </v-card-title>
                 <v-card-text>
                     <v-container>
-                        <v-select v-model="citySelected" :items="cities" label="Município" outlined></v-select>
+                        <v-select v-model="citySelected" :items="cities" label="Cidades" outlined></v-select>
                     </v-container>
                 </v-card-text>
                 <v-card-actions>
@@ -37,7 +37,6 @@ export default {
         cities: [
         "Abreu e Lima",
         "Afogados da Ingazeira",
-        "Afrânio",
         "Agrestina",
         "Água Preta",
         "Águas Belas",
