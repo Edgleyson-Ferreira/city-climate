@@ -2,6 +2,10 @@ main{
     align-items: center;
 }
 
+p{
+    font-size: 20px;
+}
+
 .contacts{
     margin-bottom: 40px;
     color: var(--color-text-dark);
@@ -9,7 +13,7 @@ main{
 
 .contact-title{
     font-weight: 600;
-    font-size: 18px;
+    font-size: 25px;
 }
 
 .contact a{

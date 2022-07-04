@@ -5,7 +5,7 @@
             <div class="contact">
                 <div class="contact" v-for="(contact, index) in contacts" :key="index">
                     <div class="contact-title">{{ contact.title }}</div>
-                    <a :href="contact.link" target="_blank">{{ contact.label }}</a>
+                    <p><a :href="contact.link" target="_blank">{{ contact.label }}</a></p>
                 </div>
             </div>
         </section>

@@ -3,7 +3,7 @@
     --color-background-nav:#0d2d3f;
     --color-background-home:#246185;
     --color-text-light:#EEEEEE;
-    --color-text-title:#0d2d3f;
+    --color-text-title:#206e9b;
     --color-text-dark:#3D3D3D;
   }
 
@@ -33,6 +33,7 @@
 
   main{
     width: 100%;
+    min-width: 500px;
     min-height: calc(100vh - 120px);
     display: flex;
     flex-direction: column;
@@ -41,5 +42,5 @@
   h1{
     color: var(--color-text-title);
     margin:40px 0;
-    font-size: 30px;
+    font-size: 40px;
   }

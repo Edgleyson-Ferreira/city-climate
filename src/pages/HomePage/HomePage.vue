@@ -1,7 +1,7 @@
 <template>
     <main>
         <div class="options">            
-            <div class="search mr-10">
+            <div class="search">
                 <v-text-field v-model="search" hide-no-data hide-details label="Nome da cidade" solo>
                     <v-icon slot="append" color="gray">
                         mdi-magnify
@@ -9,7 +9,7 @@
                 </v-text-field>
             </div>
             <div>
-                <v-btn shaped large color="success white--text" width="auto" elevation="1" @click="openModal">
+                <v-btn shaped large class="btn" color="success white--text" width="250px" elevation="1" @click="openModal">
                     <v-icon left>
                         mdi-plus
                     </v-icon>
@@ -17,13 +17,12 @@
                 </v-btn>
             </div>
         </div>
-        <CityModal :show="showModal" @close="closeModal" @confirm="addCity" />
-        <div class="space"></div>
-        <div class="cities">
-            <div class="mb-8 city" v-for="(city, index) in filteredCities" :key="index">
+        <div class="cities ">
+            <div class="city" v-for="(city, index) in filteredCities" :key="index">
                 <WeatherCardComponent :cityName="city.name" :data="city.data" @handleDelete="deleteCity" />
             </div>
         </div>
+        <CityModal :show="showModal" @close="closeModal" @confirm="addCity" />
     </main>
 </template>
 
@@ -34,7 +33,7 @@ import CityModal from '@/components/CityModal/CityModal.vue';
 
 export default {
     name: "HomePage",
-    components: { WeatherCardComponent, CityModal },
+    components: { WeatherCardComponent, CityModal},
     data() {
         return {
             search: '',

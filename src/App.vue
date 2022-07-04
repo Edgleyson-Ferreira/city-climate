@@ -1,10 +1,8 @@
 <template>
   <v-app id="app">
-    <div>
-      <HeaderComponent />
-      <router-view path="$router.key" />
-      <FooterComponent />
-    </div>
+    <HeaderComponent />
+    <router-view path="$router.key" />
+    <FooterComponent />
   </v-app>
 </template>
 

@@ -1,7 +1,7 @@
 <template>
   <v-card color="#cbe6fd" max-width="500" elevation="5" class="card">
     <ChartModal :show="showChart" @close="closeChart" :cityName="cityName" :data="forecast"/>
-    <div class="text-h4" align="center">
+    <div class="cityName" align="center">
       <span>{{ cityName }} - PE</span>
     </div>
     <div align="center">
@@ -17,20 +17,24 @@
         </v-col>
       </v-row>
     </v-card-text>
-    <div class="card-btn">
+    <v-row class="card-btn">
+      <v-col cols="6">
       <v-btn shaped large color="#297ac7" class="white--text" width="155" elevation="1" @click="openChart">
         <v-icon left>
           mdi-chart-line
         </v-icon>
         Ver Gráfico
       </v-btn>
+      </v-col>
+      <v-col cols="6">
       <v-btn shaped large color="error white--text" width="155" elevation="1" @click="handleDelete">
         <v-icon left>
           mdi-delete
         </v-icon>
         Deletar
       </v-btn>
-    </div>
+      </v-col>
+    </v-row>
   </v-card>
 </template>
 

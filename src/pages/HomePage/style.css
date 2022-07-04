@@ -10,37 +10,49 @@ main {
 }
 
 .city {
-    margin-bottom: 30px;
-    width: 400px;
+    max-width: 400px;
+    max-height: 400px;   
+    margin-top: 20px;
 }
 .options{
     display: flex;
     flex-direction: column;
+    align-items: center;
+    align-self: center;
 }
 
 .search{
-    min-width: 300px;
-    margin-bottom: 20px;
+    min-width: 250px;
 }
 
-.space{
-    width: 100%;
-    height: 60px;
+.btn{
+    margin-top: 20px;
 }
 
-@media (min-width: 700px){
+@media (min-width: 820px){
     .cities{
+        display: flex;
         flex-direction: row;
         align-items: flex-start;
         flex-wrap: wrap;
     }
 
-    .city{
-        margin-right: 30px;
+    .search{
+        min-width: 300px;
+        margin-right: 20px;
+    }
+
+    .city{        
+        margin: 0px 20px 20px 0px;
+    }
+
+    .btn{
+        margin-top: 0;
     }
 
     .options{
         display: flex;
         flex-direction: row;
+        margin-bottom: 20px;
     }
 }

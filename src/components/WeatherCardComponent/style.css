@@ -9,6 +9,11 @@
     padding: 50px 20px 20px 20px;
 }
 
+.cityName{
+    font-size: 20px;
+    font-weight: bold;
+}
+
 .card-btn{
     display: flex;
     justify-content: space-between
