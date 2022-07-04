@@ -12,7 +12,7 @@
                 <p>
                     Para sua construção foi utilizado o <a href="https://vuejs.org/" target="blank"><b>framework Vue</b></a>, 
                     as bibliotecas <a href="https://vuetifyjs.com/en/" target="blank"><b>Vuetify</b></a> para a parte de UI e 
-                    <a href="https://apexcharts.com/vue-chart-demos/Apexcharts" target="blank"><b>Apexcharts</b></a> para a exibição dos gráficos.
+                    <a href="https://apexcharts.com/" target="blank"><b>Apexcharts</b></a> para a exibição dos gráficos.
                     Já para os dados do clima de cada cidade foi consumida a API do <a href="https://openweathermap.org/" target="blank"><b>OpenWeatherMap</b></a> 
                     com uma chave de API gratuita.
                 </p>
