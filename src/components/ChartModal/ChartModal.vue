@@ -3,8 +3,8 @@
     <v-dialog class="dialog" width="70%" v-model="dialog" persistent @click:outside="handleClose">
       <v-card class="card pb-5">
         <v-card-title>
-          <v-container>
-            <span class="card-title text-h5">Gráfico de {{ cityName }}</span>
+          <v-container class="card-title">
+            <span  class="text-h5">Gráfico de {{ cityName }}</span>
           </v-container>
         </v-card-title>
         <v-card-text>
