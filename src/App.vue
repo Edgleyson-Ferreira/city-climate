@@ -1,9 +1,9 @@
 <template>
-  <div id="app">
+  <v-app>
     <HeaderComponent />
     <router-view path="$router.key" />
     <FooterComponent />
-  </div>
+  </v-app>
 </template>
 
 <script lang="ts">
